@@ -68,6 +68,11 @@ html {
 
 /* SINGLE PRODUCT PAGE */
 
+.product-img {
+  border: 1px solid var(--dark-gray);
+  border-radius: 7px;
+}
+
 .is-not-available {
   background-color: var(--dark-orange);
   width: 8em;
@@ -81,9 +86,27 @@ html {
 .is-available {
   background-color: var(--green);
   width: 8em;
-  color: white;
+  color: var(--ivory);
   font-weight: bold;
   font-size: 12px;
   padding: 0.3em;
   text-transform: uppercase;
+}
+
+/* PAGINATION STYLE */
+.pagination .active .page-link {
+  color: var(--ivory);
+  background-color: var(--dark-blue);
+}
+
+.pagination .page-link {
+  color: var(--dark-blue);
+}
+
+/* MEDIA QUERY */
+/* XS SCREENS */
+@media only screen and (max-width: 576px) {
+  .card img {
+    height: 17em;
+  }
 }

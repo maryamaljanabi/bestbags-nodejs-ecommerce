@@ -1,0 +1,38 @@
+<nav class="topbar navbar navbar-expand-md navbar-dark bg-dark ">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse mx-auto order-0" id="navbarNav">
+    <ul class="navbar-nav mx-auto">
+      <li <% if (pageName === "All Products") { %>
+        class="nav-item active"
+        <%} else {%>
+          class="nav-item"
+        <%} %> 
+      >
+        <a class="nav-link" href="/products/">All</a>
+      </li>
+
+      <% if (categories) { %>
+        <% categories.forEach( category => { %>
+          <li <% if (pageName === category.title) { %>
+            class="nav-item active"
+            <% } else { %>
+              class="nav-item"
+            <% } %> 
+          >
+          <a class="nav-link" href="/products/<%= category.slug %>"><%= category.title %></a>
+        </li>
+          <% }) %>
+      <% } %>
+    </ul>
+  </div>
+</nav>

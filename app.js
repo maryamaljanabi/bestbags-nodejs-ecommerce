@@ -10,7 +10,7 @@ const session = require("express-session");
 const app = express();
 
 // mongodb configuration
-const uri = process.env.MONGODB_URI || "mongodb://localhost/bags-ecommerce";
+const uri = process.env.MONGO_URI || "mongodb://localhost/bags-ecommerce";
 mongoose
   .connect(uri, {
     useNewUrlParser: true,

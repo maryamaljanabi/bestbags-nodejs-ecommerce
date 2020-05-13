@@ -1,0 +1,35 @@
+<%- include ../partials/header %> 
+<div class="container">
+  <div class="row mt-4 mb-4">
+    <div class="col-md-5 mt-2 mr-2 ml-auto">
+      <img
+        src="<%=product.imagePath%>"
+        class="img-fluid prodImg"
+        alt="product image"
+      />
+    </div>
+    <div class="col-md-5 mt-2 mb-2 ml-2 mr-auto text-dark">
+      <h2><%=product.title%></h2>
+      <hr />
+      <p class="price">USD $<%=product.price%></p>
+      <p class="lead"> Description: 
+        <p><%=product.description%></p>
+      </p>
+      
+      <p><strong>Category:</strong> <%=product.category.title%></p>
+      <p><strong>Brand: </strong><%=product.manufacturer%></p>
+      <p><strong>Product code:</strong> <%=product.productCode%></p>
+      <p><strong>Date added to the store:</strong> <%= moment(product.createdAt).format( 'MMMM Do YYYY')%></p>
+      <% if(product.available) {%>
+      <p class="is-available text-center">Available</p>
+      <a href="/add-to-cart/<%=product._id%>" class="btn btn-block btn-secondary mt-3 mb-3 button-style">
+        Add to Shopping Cart
+      </a>
+      <% } else { %>
+      <p class="is-not-available text-center">Unavailable</p>
+      <%} %>
+    </div>
+  </div>
+  <hr />
+</div>
+<%- include ../partials/footer %>

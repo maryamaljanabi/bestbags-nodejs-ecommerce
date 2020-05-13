@@ -4,6 +4,7 @@
   --dark-orange: #e9765b;
   --light-orange: #f2a490;
   --dark-pink: #de5b6d;
+  --green: #18a558;
   --ivory: #f9f7f4;
   --black: #202020;
   --dark-gray: #474747;
@@ -31,24 +32,25 @@ html {
 .card a:hover {
   color: var(--dark-gray);
 }
-.card .btn {
+
+.button-style {
   background-color: var(--dark-blue);
-  color: var(--ivory);
+  color: var(--ivory) !important;
 }
 
-.card .btn:hover {
+.button-style:hover {
   background-color: var(--light-blue);
-  color: var(--black);
+  color: var(--black) !important;
 }
 
-.card .btn-danger {
+.button-style-danger {
   background-color: var(--dark-orange);
-  color: var(--ivory);
+  color: var(--ivory) !important;
 }
 
-.card .btn-danger:hover {
+.button-style-danger:hover {
   background-color: var(--light-orange);
-  color: var(--black);
+  color: var(--black) !important;
 }
 
 .price {
@@ -62,4 +64,26 @@ html {
   width: 100%;
   height: 12em;
   object-fit: cover;
+}
+
+/* SINGLE PRODUCT PAGE */
+
+.is-not-available {
+  background-color: var(--dark-orange);
+  width: 8em;
+  color: var(--ivory);
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0.3em;
+  text-transform: uppercase;
+}
+
+.is-available {
+  background-color: var(--green);
+  width: 8em;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0.3em;
+  text-transform: uppercase;
 }

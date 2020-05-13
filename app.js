@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const Category = require("./models/category");
 
 const app = express();
 
@@ -32,6 +33,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+// global variables across routes
+app.use(async (req, res, next) => {
+  try {
+    const categories = await Category.find({}).sort({ title: 1 }).exec();
+    res.locals.categories = categories;
+    next();
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
 
 //routes config
 const indexRouter = require("./routes/index");

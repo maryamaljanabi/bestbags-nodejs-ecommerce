@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/product");
-var Category = require("../models/category");
+const Category = require("../models/category");
+var moment = require("moment");
 
 router.get("/", async (req, res) => {
   try {
@@ -16,6 +17,20 @@ router.get("/", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.redirect("/");
+  }
+});
+
+router.get("/:slug/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id).populate("category");
+    res.render("shop/product", {
+      pageName: product.title,
+      product,
+      moment: moment,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.redirect("/");
   }
 });
 

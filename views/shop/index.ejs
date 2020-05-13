@@ -1,0 +1,36 @@
+<%- include ../partials/header %> 
+
+<div class="container">
+<!-- Contents -->
+  <div class="row">
+    <% products.forEach((product) => { %>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-1 d-flex align-items-stretch">
+      <div class="card m-3">
+        <a class="cardLink" href="/products/<%=product.category.slug%>/<%=product._id%>">
+        <img
+          src="<%= product.imagePath %>"
+          alt="Bag"
+          class="card-img-top img-fluid"
+        />
+        <div class="card-body d-flex flex-column">
+            <h6 class="card-title text-center"><%= product.title %></h6>
+            <div class="price text-center">$<%= product.price %></div>
+          </a>
+
+            <% if(product.available) {%>
+              <a href="/add-to-cart/<%=product._id%>" class="btn btn-block btn-secondary mt-auto">
+                Add to Shopping Cart
+              </a>
+              <% } else { %>
+                <a href="#" class="btn btn-block btn-danger">
+                  Unavailable
+                </a>
+              <%} %>
+
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+<%- include ../partials/footer %>

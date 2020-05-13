@@ -35,7 +35,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //routes config
 const indexRouter = require("./routes/index");
+const productsRouter = require("./routes/products");
 app.use("/", indexRouter);
+app.use("/products", productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

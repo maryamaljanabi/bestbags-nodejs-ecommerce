@@ -61,12 +61,33 @@
               <i class="fas fa-shopping-cart"></i> Shopping Cart
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"> Sign Up</a>
+          <% if (login) { %>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i> Welcome <%=currentUser.email%>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/user/profile">User Account</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/user/logout">Logout</a>
+            </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"> Sign In</a>
+          <% } else {%>
+          <li>
+            <a class="nav-link" href="/user/signup"> Sign Up</a>
           </li>
+          <li>
+            <a class="nav-link" href="/user/signin"> Sign In</a>
+          </li>
+          <% }%>
         </ul>
       </div>
     </nav>

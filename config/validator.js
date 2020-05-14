@@ -23,7 +23,6 @@ const validateSignup = (req, res, next) => {
     var messages = [];
     errors.array().forEach((error) => {
       messages.push(error.msg);
-      console.log(messages);
     });
     req.flash("error", messages[0]);
     return res.redirect("/user/signup");
@@ -37,7 +36,6 @@ const validateSignin = (req, res, next) => {
     var messages = [];
     errors.array().forEach((error) => {
       messages.push(error.msg);
-      console.log(messages);
     });
     req.flash("error", messages[0]);
     return res.redirect("/user/signin");

@@ -10,24 +10,13 @@ const passport = require("passport");
 const flash = require("connect-flash");
 const Category = require("./models/category");
 var MongoStore = require("connect-mongo")(session);
+const connectDB = require("./config/db");
 
 const app = express();
 require("./config/passport");
 
 // mongodb configuration
-const uri = process.env.MONGO_URI || "mongodb://localhost/bags-ecommerce";
-mongoose
-  .connect(uri, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  })
-  .catch((error) => console.log(error));
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MONGODB CONNECTED SUCCESSFULLY!");
-});
-
+connectDB();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -43,7 +32,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({
-      mongooseConnection: connection,
+      mongooseConnection: mongoose.connection,
     }),
     //session expires after 3 hours
     cookie: { maxAge: 60 * 1000 * 60 * 3 },

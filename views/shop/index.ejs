@@ -1,37 +1,49 @@
-<%- include ../partials/header %>  <%- include ../partials/categoriesNavbar %>
+<%- include ../partials/header %> <%- include ../partials/categoriesNavbar %>
 
 <div class="container">
-<!-- Contents -->
+  <!-- Contents -->
   <div class="row">
     <% products.forEach((product) => { %>
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-1 d-flex align-items-stretch">
+    <div
+      class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-1 d-flex align-items-stretch"
+    >
       <div class="card m-3">
-        <a class="cardLink" href="/products/<%=product.category.slug%>/<%=product._id%>">
-        <img
-          src="<%= product.imagePath %>"
-          alt="Bag"
-          class="card-img-top img-fluid"
-        />
+        <a
+          class="title-link"
+          href="/products/<%=product.category.slug%>/<%=product._id%>"
+        >
+          <img
+            src="<%= product.imagePath %>"
+            alt="Bag"
+            class="card-img-top img-fluid"
+        /></a>
         <div class="card-body d-flex flex-column">
-            <h6 class="card-title text-center"><%= product.title %></h6>
-            <div class="price text-center">$<%= product.price %></div>
+          <a
+            class="title-link"
+            href="/products/<%=product.category.slug%>/<%=product._id%>"
+          >
+            <h6 class="card-title text-center"><%= product.title %></h6></a
+          >
+          <div class="price text-center">$<%= product.price %></div>
+
+          <% if(product.available) {%>
+          <a
+            href="/add-to-cart/<%=product._id%>"
+            class="btn btn-block btn-secondary mt-auto button-style"
+          >
+            Add to Shopping Cart
           </a>
-
-            <% if(product.available) {%>
-              <a href="/add-to-cart/<%=product._id%>" class="btn btn-block btn-secondary mt-auto button-style">
-                Add to Shopping Cart
-              </a>
-              <% } else { %>
-                <a href="#" class="btn btn-block btn-danger button-style-danger">
-                  Unavailable
-                </a>
-              <%} %>
-
+          <% } else { %>
+          <a href="#" class="btn btn-block btn-danger button-style-danger">
+            Unavailable
+          </a>
+          <%} %>
         </div>
       </div>
     </div>
-    <% }) %>
+      <% }) %>
+    </div>
+    <%- include ../partials/pagination %>
   </div>
-  <%- include ../partials/pagination %>
+  <%- include ../partials/footer %>
 </div>
-<%- include ../partials/footer %>

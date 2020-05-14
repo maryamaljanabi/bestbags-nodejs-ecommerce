@@ -6,9 +6,13 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const passport = require("passport");
+const flash = require("connect-flash");
 const Category = require("./models/category");
+var MongoStore = require("connect-mongo")(session);
 
 const app = express();
+require("./config/passport");
 
 // mongodb configuration
 const uri = process.env.MONGO_URI || "mongodb://localhost/bags-ecommerce";
@@ -33,10 +37,28 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: connection,
+    }),
+    //session expires after 3 hours
+    cookie: { maxAge: 60 * 1000 * 60 * 3 },
+  })
+);
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // global variables across routes
 app.use(async (req, res, next) => {
   try {
+    res.locals.login = req.isAuthenticated();
+    res.locals.session = req.session;
+    res.locals.currentUser = req.user;
     const categories = await Category.find({}).sort({ title: 1 }).exec();
     res.locals.categories = categories;
     next();
@@ -49,8 +71,10 @@ app.use(async (req, res, next) => {
 //routes config
 const indexRouter = require("./routes/index");
 const productsRouter = require("./routes/products");
-app.use("/", indexRouter);
+var usersRouter = require("./routes/user");
 app.use("/products", productsRouter);
+app.use("/user", usersRouter);
+app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

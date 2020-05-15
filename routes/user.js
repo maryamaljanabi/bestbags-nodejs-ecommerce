@@ -117,10 +117,17 @@ router.post(
 
 // GET: display user's profile
 router.get("/profile", middleware.isLoggedIn, async (req, res) => {
+  const successMsg = req.flash("success")[0];
+  const errorMsg = req.flash("error")[0];
   try {
     // find all orders of this user
     allOrders = await Order.find({ user: req.user });
-    res.render("user/profile", { orders: allOrders, pageName: "User Profile" });
+    res.render("user/profile", {
+      orders: allOrders,
+      errorMsg,
+      successMsg,
+      pageName: "User Profile",
+    });
   } catch (err) {
     console.log(err);
     return res.redirect("/");

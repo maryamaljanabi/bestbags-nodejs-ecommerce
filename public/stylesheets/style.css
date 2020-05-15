@@ -48,11 +48,6 @@ html {
   box-shadow: 5px 5px 5px var(--dark-gray);
 }
 
-.cardLink:hover {
-  color: var(--dark-gray);
-  text-decoration: none;
-}
-
 .fa-chevron-circle-right {
   font-size: 50px;
   color: var(--dark-blue);
@@ -157,6 +152,35 @@ hr.gradient-style {
 
 .pagination .page-link {
   color: var(--dark-blue);
+}
+
+/* SHOPPING CART STYLES */
+.img-small {
+  height: 9%;
+  margin: 2px;
+}
+
+.qty-display {
+  padding: 3px;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 5px;
+}
+
+.fa-plus-square {
+  color: var(--green);
+  font-size: 25px;
+  margin: 2px;
+}
+
+.fa-minus-square {
+  color: var(--dark-orange);
+  font-size: 25px;
+  margin: 2px;
+}
+
+.fa-shopping-cart {
+  font-size: 22px;
+  padding-top: 0.3em;
 }
 
 /* MEDIA QUERY */

@@ -57,8 +57,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fas fa-shopping-cart"></i> Shopping Cart
+            <a class="nav-link" href="/shopping-cart">
+              <i class="fas fa-shopping-cart"></i> Shopping Cart <%
+              if(session.cart) { %>
+              <span class="badge badge-pill badge-info"
+                ><%= session.cart.totalQty %></span
+              >
+              <% } else { %>
+              <span class="badge badge-pill badge-info">0</span>
+              <% } %>
             </a>
           </li>
           <% if (login) { %>

@@ -1,35 +1,39 @@
-<%- include ../partials/header %>
-<%- include ../partials/categoriesNavbar %>
+<%- include ../partials/header %> <%- include ../partials/categoriesNavbar %>
 
 <div class="container">
   <div class="row">
-      <div class="col-md-8 m-auto">
-        <h1 class="mt-4 mb-4">Sign Up Page</h1>
-        <% if(messages.length>0) {%>
-        <div id="flash-msg" class="alert alert-danger">
-          <% messages.forEach((message) => { %>
-            <p>
-              <%=message %>
-            </p>
-            <%}) %>
-        </div>
-        <%}%>
-        <form action="/user/signup" method="POST">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" name="email" id="email" />
-          </div>
-          <div class="form-group">
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password" />
-              </div>
-              <input type="hidden" name="_csrf" value="<%= csrfToken %>"/>
-          <button type="submit" class="btn btn-primary">Sign Up</button>
-        </form>
+    <div class="col-md-8 m-auto">
+      <h1 class="mt-4 mb-4">Sign Up Page</h1>
+      <% if(messages.length>0) {%>
+      <div id="flash-msg" class="alert alert-danger">
+        <% messages.forEach((message) => { %>
+        <p>
+          <%=message %>
+        </p>
+        <%}) %>
       </div>
+      <%}%>
+      <form action="/user/signup" method="POST">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" name="email" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+          />
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit" class="btn btn-primary button-style">
+          Sign Up
+        </button>
+      </form>
     </div>
   </div>
-
+</div>
 
 <%- include ../partials/footer %>

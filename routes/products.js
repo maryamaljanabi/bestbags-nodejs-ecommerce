@@ -34,6 +34,41 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET: search box
+router.get("/search", async (req, res) => {
+  const perPage = 6;
+  let page = parseInt(req.query.page) || 1;
+  const successMsg = req.flash("success")[0];
+  const errorMsg = req.flash("error")[0];
+
+  try {
+    const products = await Product.find({
+      title: { $regex: req.query.search, $options: "i" },
+    })
+      .sort("-createdAt")
+      .skip(perPage * page - perPage)
+      .limit(perPage)
+      .populate("category")
+      .exec();
+    const count = await Product.count({
+      title: { $regex: req.query.search, $options: "i" },
+    });
+    console.log(count);
+    res.render("shop/index", {
+      pageName: "Search Results",
+      products,
+      successMsg,
+      errorMsg,
+      current: page,
+      home: "/products/search?search=" + req.query.search + "&",
+      pages: Math.ceil(count / perPage),
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 //GET: get a certain category by its slug (this is used for the categories navbar)
 router.get("/:slug", async (req, res) => {
   const successMsg = req.flash("success")[0];

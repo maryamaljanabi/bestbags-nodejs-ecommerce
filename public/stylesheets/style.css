@@ -23,6 +23,145 @@ html {
   scroll-behavior: smooth;
 }
 
+/* NAVBAR STYLE */
+a,
+.logo-container a,
+.right-nav a {
+  color: var(--black);
+  text-decoration: none !important;
+}
+
+a:hover,
+.logo-container a:hover,
+.right-nav a:hover {
+  color: var(--dark-gray) !important;
+  text-decoration: none;
+}
+
+.nav-container {
+  margin: auto;
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: center;
+  color: var(--black);
+}
+
+.search-container {
+  width: 70%;
+}
+.right-nav {
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto !important;
+  padding-left: auto !important;
+}
+
+.right-nav ul li {
+  display: inline;
+  padding: 0.3em;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  transform: translateX(3em);
+}
+.logo-container a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.logo-title {
+  font-weight: 600;
+  margin: 4px 1px;
+}
+
+.logo-img {
+  max-height: 3em;
+}
+
+/* CATEGORIES NAVBAR */
+
+.navbar-custom {
+  background-color: var(--dark-blue);
+}
+/* change the brand and text color */
+/* change the link color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text,
+.navbar-custom .navbar-nav .nav-link {
+  color: var(--ivory);
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item .nav-link:hover,
+.navbar-custom .nav-item.active .nav-link {
+  color: var(--light-blue) !important;
+}
+
+/* for dropdowns only */
+.navbar-custom .navbar-nav .dropdown-menu {
+  background-color: #33aa33;
+}
+.navbar-custom .navbar-nav .dropdown-menu > li > a {
+  color: #fff;
+}
+.navbar-custom .navbar-nav .dropdown-menu > li > a:hover,
+.navbar-custom .navbar-nav .dropdown-menu > li > a:focus {
+  color: #33aa33;
+}
+
+/* SEARCH BOX */
+
+.search-title {
+  font-size: 22px;
+  font-weight: 900;
+  text-align: center;
+  color: #ff8b88;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: transparent;
+  transition: transform 250ms ease-in-out;
+  font-size: 14px;
+  line-height: 18px;
+  color: #575756;
+  background-color: transparent;
+  /*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
+
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  background-position: 95% center;
+  border-radius: 50px;
+  border: 1px solid #575756;
+  transition: all 250ms ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.search-input {
+  color: color(#575756 a(0.8));
+  letter-spacing: 1.5px;
+}
+
+.search-input:hover,
+.search-input:focus {
+  padding: 12px 0;
+  outline: 0;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #575756;
+  border-radius: 0;
+  background-position: 100% center;
+}
+
 /* HOME PAGE */
 .carousel img {
   margin: auto;
@@ -217,5 +356,31 @@ hr.gradient-style {
 @media only screen and (max-width: 576px) {
   .card img {
     height: 17em;
+  }
+}
+
+/* SM SCREENS */
+@media only screen and (max-width: 768px) {
+  .right-nav {
+    justify-content: center;
+  }
+  .search-container {
+    width: 80%;
+    margin: auto;
+  }
+  .logo-container {
+    transform: translateX(0em);
+    margin: 0.5em auto;
+  }
+}
+
+/* MD SCREENS */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .col-md-3 {
+    margin: 10px;
+  }
+  .circle-img {
+    width: 150px;
+    height: 150px;
   }
 }

@@ -1,8 +1,15 @@
 const express = require("express");
+const csrf = require("csurf");
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 const Product = require("../models/product");
 const Category = require("../models/category");
-var Cart = require("../models/cart");
+const Cart = require("../models/cart");
+const Order = require("../models/order");
+const middleware = require("../middleware");
 const router = express.Router();
+
+const csrfProtection = csrf();
+router.use(csrfProtection);
 
 // GET: home page
 router.get("/", async (req, res) => {
@@ -188,6 +195,72 @@ router.get("/removeAll/:id", async function (req, res, next) {
     console.log(err.message);
     res.redirect("/");
   }
+});
+
+// GET: checkout form with csrf token
+router.get("/checkout", middleware.isLoggedIn, async (req, res) => {
+  const errorMsg = req.flash("error")[0];
+
+  if (!req.session.cart) {
+    return res.redirect("/shopping-cart");
+  }
+  //load the cart with the session's cart's id from the db
+  cart = await Cart.findById(req.session.cart._id);
+
+  var errMsg = req.flash("error")[0];
+  res.render("shop/checkout", {
+    total: cart.totalCost,
+    csrfToken: req.csrfToken(),
+    errorMsg,
+    pageName: "Checkout",
+  });
+});
+
+// POST: handle checkout logic and payment using Stripe
+router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
+  if (!req.session.cart) {
+    return res.redirect("/shopping-cart");
+  }
+  var cart = await Cart.findById(req.session.cart._id);
+  stripe.charges.create(
+    {
+      amount: cart.totalCost * 100,
+      currency: "usd",
+      source: req.body.stripeToken,
+      description: "Test charge",
+    },
+    function (err, charge) {
+      if (err) {
+        req.flash("error", err.message);
+        console.log(err);
+        return res.redirect("/checkout");
+      }
+      var order = new Order({
+        //passport stores user in the req when user sign in
+        user: req.user,
+        cart: {
+          totalQty: cart.totalQty,
+          totalCost: cart.totalCost,
+          items: cart.items,
+        },
+        address: req.body.address,
+        name: req.body.name,
+        paymentId: charge.id,
+      });
+      order.save(async (err, newOrder) => {
+        if (err) {
+          console.log(err);
+          return res.redirect("/checkout");
+        }
+        cart.paid = true;
+        await cart.save();
+        await Cart.findByIdAndDelete(cart._id);
+        req.flash("success", "Successfully purchased");
+        req.session.cart = null;
+        res.redirect("/user/profile");
+      });
+    }
+  );
 });
 
 // create products array to store the info of each product in the cart

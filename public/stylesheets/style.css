@@ -295,7 +295,7 @@ hr.gradient-style {
 
 /* SHOPPING CART STYLES */
 .img-small {
-  height: 9%;
+  height: 5%;
   margin: 2px;
 }
 
@@ -320,6 +320,45 @@ hr.gradient-style {
 .fa-shopping-cart {
   font-size: 22px;
   padding-top: 0.3em;
+}
+
+/* FOOTER */
+
+ul {
+  list-style: none;
+}
+
+.white-links {
+  margin-left: 2.5em;
+}
+.white-links a {
+  font-size: 14px;
+  color: var(--ivory);
+  margin-right: 1em;
+}
+.white-links a:hover {
+  color: var(--light-blue) !important;
+}
+.footer-title {
+  font-weight: 300;
+  color: whitesmoke;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+}
+#contact {
+  text-align: left;
+  vertical-align: middle;
+  align-items: center;
+  color: var(--ivory);
+  background-color: var(--black);
+  padding: 1em 1em 0.2em 1em;
+  border-bottom: 5px var(--dark-blue) solid;
+}
+.footer {
+  font-size: 14px;
+  padding: 1em 1.5em;
+  color: var(--ivory);
+  background-color: #1a1a1a;
 }
 
 /* STRIPE ELEMENTS FOR CARD PAYMENT */

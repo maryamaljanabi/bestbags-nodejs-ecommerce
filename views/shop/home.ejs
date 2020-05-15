@@ -46,23 +46,24 @@
 <div class="container">
   <h3 class="text-center mb-5 mt-5">Store's Categories</h3>
   <% if (categories) { %>
-  <div class="row text-center">
+  <div class="row text-center m-auto">
     <% for(let i=0; i<3; i++){ %>
-    <div class="col-md-3 col-sm-12 text-center m-3">
+    <div class="col-lg-3 col-md-3 col-sm-12 text-center ml-2">
       <a class="title-link" href="/products/<%=categories[i].slug%>">
         <img src="images/dept<%=i%>.jpg" alt="category" class="circle-img" />
         <h4 class="mb-3 mt-3"><%=categories[i].title%></h4>
       </a>
     </div>
     <%} %>
-    <div class="col-md-1 col-sm-12 text-center m-3">
+    <div class="col-lg-1 col-md-1 col-sm-12 text-center mx-auto">
       <a href="/products">
         <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
       </a>
     </div>
   </div>
+  <%}%>
 </div>
-<%}%>
+
 <hr class="gradient-style" />
 
 <!-- Latest products slider -->

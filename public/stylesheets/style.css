@@ -183,6 +183,35 @@ hr.gradient-style {
   padding-top: 0.3em;
 }
 
+/* STRIPE ELEMENTS FOR CARD PAYMENT */
+.StripeElement {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 6px;
+  padding: 10px 12px;
+
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
 /* MEDIA QUERY */
 /* XS SCREENS */
 @media only screen and (max-width: 576px) {

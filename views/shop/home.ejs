@@ -104,9 +104,8 @@
       <div class="carousel-item active">
         <div class="row">
           <% for(let i=0; i<3; i++) { %>
-          <div class="col-md-4">
-            <!-- Product card -->
-            <div class="card m-3">
+          <div class="col-md-4 product-index-box">
+            <div class="single-product d-flex flex-column h-100">
               <a
                 class="title-link"
                 href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
@@ -114,37 +113,34 @@
                 <img
                   src="<%= products[i].imagePath %>"
                   alt="Bag"
-                  class="card-img-top img-fluid"
+                  class="img-fluid"
               /></a>
-              <div class="card-body d-flex flex-column">
+              <div class="product-info">
                 <a
                   class="title-link"
                   href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
                 >
-                  <h6 class="card-title text-center">
-                    <%= products[i].title %>
-                  </h6></a
+                  <h6 class="mt-2 mb-2"><%= products[i].title %></h6></a
                 >
-                <div class="price text-center">$<%= products[i].price %></div>
-                <% if(products[i].available) {%>
-                <a
-                  href="/add-to-cart/<%=products[i]._id%>"
-                  class="btn btn-block btn-secondary mt-auto button-style"
-                >
-                  Add to Shopping Cart
-                </a>
-                <% } else { %>
-                <a
-                  href="#"
-                  class="btn btn-block btn-danger button-style-danger"
-                >
-                  Unavailable
-                </a>
-                <%} %>
+                <div class="price">$<%= products[i].price %></div>
               </div>
+              <% if(products[i].available) {%>
+              <a
+                href="/add-to-cart/<%=products[i]._id%>"
+                class="btn btn-block btn-secondary button-style mt-auto mb-2"
+              >
+                Add to Shopping Cart
+              </a>
+              <% } else { %>
+              <a
+                href="#"
+                class="btn btn-block btn-danger button-style-danger mt-2 mb-2"
+              >
+                Sold out
+              </a>
+              <%} %>
             </div>
           </div>
-          <!-- /.Product card -->
           <%}%>
         </div>
       </div>
@@ -154,9 +150,8 @@
       <div class="carousel-item">
         <div class="row">
           <% for(let i=3; i<6; i++) { %>
-          <div class="col-md-4">
-            <!-- Product card -->
-            <div class="card m-3">
+          <div class="col-md-4 product-index-box">
+            <div class="single-product d-flex flex-column h-100">
               <a
                 class="title-link"
                 href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
@@ -164,37 +159,34 @@
                 <img
                   src="<%= products[i].imagePath %>"
                   alt="Bag"
-                  class="card-img-top img-fluid"
+                  class="img-fluid"
               /></a>
-              <div class="card-body d-flex flex-column">
+              <div class="product-info">
                 <a
                   class="title-link"
                   href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
                 >
-                  <h6 class="card-title text-center">
-                    <%= products[i].title %>
-                  </h6></a
+                  <h6 class="mt-2 mb-2"><%= products[i].title %></h6></a
                 >
-                <div class="price text-center">$<%= products[i].price %></div>
-                <% if(products[i].available) {%>
-                <a
-                  href="/add-to-cart/<%=products[i]._id%>"
-                  class="btn btn-block btn-secondary mt-auto button-style"
-                >
-                  Add to Shopping Cart
-                </a>
-                <% } else { %>
-                <a
-                  href="#"
-                  class="btn btn-block btn-danger button-style-danger"
-                >
-                  Unavailable
-                </a>
-                <%} %>
+                <div class="price">$<%= products[i].price %></div>
               </div>
+              <% if(products[i].available) {%>
+              <a
+                href="/add-to-cart/<%=products[i]._id%>"
+                class="btn btn-block btn-secondary button-style mt-auto mb-2"
+              >
+                Add to Shopping Cart
+              </a>
+              <% } else { %>
+              <a
+                href="#"
+                class="btn btn-block btn-danger button-style-danger mt-2 mb-2"
+              >
+                Sold out
+              </a>
+              <%} %>
             </div>
           </div>
-          <!-- /.Product card -->
           <%}%>
         </div>
       </div>
@@ -204,9 +196,8 @@
       <div class="carousel-item">
         <div class="row">
           <% for(let i=6; i<9; i++) { %>
-          <div class="col-md-4">
-            <!-- Product card -->
-            <div class="card m-3">
+          <div class="col-md-4 product-index-box">
+            <div class="single-product d-flex flex-column h-100">
               <a
                 class="title-link"
                 href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
@@ -214,37 +205,34 @@
                 <img
                   src="<%= products[i].imagePath %>"
                   alt="Bag"
-                  class="card-img-top img-fluid"
+                  class="img-fluid"
               /></a>
-              <div class="card-body d-flex flex-column">
+              <div class="product-info">
                 <a
                   class="title-link"
                   href="/products/<%=products[i].category.slug%>/<%=products[i]._id%>"
                 >
-                  <h6 class="card-title text-center">
-                    <%= products[i].title %>
-                  </h6></a
+                  <h6 class="mt-2 mb-2"><%= products[i].title %></h6></a
                 >
-                <div class="price text-center">$<%= products[i].price %></div>
-                <% if(products[i].available) {%>
-                <a
-                  href="/add-to-cart/<%=products[i]._id%>"
-                  class="btn btn-block btn-secondary mt-auto button-style"
-                >
-                  Add to Shopping Cart
-                </a>
-                <% } else { %>
-                <a
-                  href="#"
-                  class="btn btn-block btn-danger button-style-danger"
-                >
-                  Unavailable
-                </a>
-                <%} %>
+                <div class="price">$<%= products[i].price %></div>
               </div>
+              <% if(products[i].available) {%>
+              <a
+                href="/add-to-cart/<%=products[i]._id%>"
+                class="btn btn-block btn-secondary button-style mt-auto mb-2"
+              >
+                Add to Shopping Cart
+              </a>
+              <% } else { %>
+              <a
+                href="#"
+                class="btn btn-block btn-danger button-style-danger mt-2 mb-2"
+              >
+                Sold out
+              </a>
+              <%} %>
             </div>
           </div>
-          <!-- /.Product card -->
           <%}%>
         </div>
       </div>

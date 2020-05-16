@@ -8,7 +8,7 @@ var moment = require("moment");
 router.get("/", async (req, res) => {
   const successMsg = req.flash("success")[0];
   const errorMsg = req.flash("error")[0];
-  const perPage = 6;
+  const perPage = 8;
   let page = parseInt(req.query.page) || 1;
   try {
     const products = await Product.find({})
@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
 
 // GET: search box
 router.get("/search", async (req, res) => {
-  const perPage = 6;
+  const perPage = 8;
   let page = parseInt(req.query.page) || 1;
   const successMsg = req.flash("success")[0];
   const errorMsg = req.flash("error")[0];
@@ -73,7 +73,7 @@ router.get("/search", async (req, res) => {
 router.get("/:slug", async (req, res) => {
   const successMsg = req.flash("success")[0];
   const errorMsg = req.flash("error")[0];
-  const perPage = 6;
+  const perPage = 8;
   let page = parseInt(req.query.page) || 1;
   try {
     const foundCategory = await Category.findOne({ slug: req.params.slug });

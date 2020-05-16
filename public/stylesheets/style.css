@@ -90,30 +90,16 @@ a:hover,
 .navbar-custom {
   background-color: var(--dark-blue);
 }
-/* change the brand and text color */
-/* change the link color */
+
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text,
 .navbar-custom .navbar-nav .nav-link {
   color: var(--ivory);
 }
 
-/* change the color of active or hovered links */
 .navbar-custom .nav-item .nav-link:hover,
 .navbar-custom .nav-item.active .nav-link {
   color: var(--light-blue) !important;
-}
-
-/* for dropdowns only */
-.navbar-custom .navbar-nav .dropdown-menu {
-  background-color: #33aa33;
-}
-.navbar-custom .navbar-nav .dropdown-menu > li > a {
-  color: #fff;
-}
-.navbar-custom .navbar-nav .dropdown-menu > li > a:hover,
-.navbar-custom .navbar-nav .dropdown-menu > li > a:focus {
-  color: #33aa33;
 }
 
 /* SEARCH BOX */
@@ -209,10 +195,14 @@ hr.gradient-style {
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0)
   );
-  margin: 4em auto;
+  margin: 3em auto;
 }
 
 /* PRODUCTS INDEX PAGE */
+.products-container {
+  margin: 1em 3em;
+}
+
 .title-link {
   color: var(--black);
   text-decoration: none;
@@ -250,10 +240,18 @@ hr.gradient-style {
   margin: 1px 0px 6px 0px;
 }
 
-.card img {
-  width: 100%;
-  height: 12em;
+.product-index-box {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.product-index-box img {
+  width: 90%;
+  height: 20em;
   object-fit: cover;
+  border: 1px solid #c2c2c2;
+  border-radius: 5px;
 }
 
 /* SINGLE PRODUCT PAGE */

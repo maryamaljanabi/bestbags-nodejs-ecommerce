@@ -4,7 +4,7 @@ const Product = require("../models/product");
 const Category = require("../models/category");
 const mongoose = require("mongoose");
 const faker = require("faker");
-const connectDB = require("./config/db");
+const connectDB = require("../config/db");
 connectDB();
 
 async function seedDB() {
@@ -78,6 +78,7 @@ async function seedDB() {
 
   //--------------------Mini Bags
   const miniBags_titles = [
+    "Pink Leather Crossbody Bag",
     "Stylish Pink Crossbody Bag",
     "Mini Black Carra Shoulder Bag",
     "White Leather Mini Bag with Crossbody Strap",
@@ -93,6 +94,7 @@ async function seedDB() {
     "Simple Red Mini Bag",
   ];
   const miniBags_imgs = [
+    "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80",
     "https://upload.wikimedia.org/wikipedia/commons/b/bc/DKNY_Mini_Flap_Crossbody_W_-_SS_Crossbody_R1513004_Kalbsleder_beige_%281%29_%2816080518124%29.jpg",
     "https://p1.pxfuel.com/preview/177/215/691/handbag-bag-today-the-postwoman-fashion-style-skin.jpg",
     "https://p2.piqsels.com/preview/392/1016/905/handbags-white-fashion-bag-shoulder-bag.jpg",
@@ -217,17 +219,17 @@ async function seedDB() {
     await mongoose.disconnect();
   }
 
-  await seedProducts(backpacks_titles, backpacks_imgs, "Backpacks");
-  await seedProducts(briefcases_titles, briefcases_imgs, "Briefcases");
-  await seedProducts(travel_titles, travel_imgs, "Travel");
+  // await seedProducts(backpacks_titles, backpacks_imgs, "Backpacks");
+  // await seedProducts(briefcases_titles, briefcases_imgs, "Briefcases");
+  // await seedProducts(travel_titles, travel_imgs, "Travel");
   await seedProducts(miniBags_titles, miniBags_imgs, "Mini Bags");
-  await seedProducts(
-    largeHandbags_titles,
-    largeHandbags_imgs,
-    "Large Handbags"
-  );
-  await seedProducts(purses_titles, purses_imgs, "Purses");
-  await seedProducts(totes_titles, totes_imgs, "Totes");
+  // await seedProducts(
+  //   largeHandbags_titles,
+  //   largeHandbags_imgs,
+  //   "Large Handbags"
+  // );
+  // await seedProducts(purses_titles, purses_imgs, "Purses");
+  // await seedProducts(totes_titles, totes_imgs, "Totes");
 
   await closeDB();
 }

@@ -43,15 +43,14 @@
       <p><strong>Product code:</strong> <%=product.productCode%></p>
       <p><strong>Date added to the store:</strong> <%= moment(product.createdAt).format( 'MMMM Do YYYY')%></p>
       <% if(product.available) {%>
-      <p class="is-available text-center">Available</p>
+      <p class="is-available text-center">In stock</p>
       <a href="/add-to-cart/<%=product._id%>" class="btn btn-block btn-secondary mt-3 mb-3 button-style">
         Add to Shopping Cart
       </a>
       <% } else { %>
-      <p class="is-not-available text-center">Unavailable</p>
+      <p class="is-not-available text-center">Sold out</p>
       <%} %>
     </div>
   </div>
-  <hr />
 </div>
 <%- include ../partials/footer %>

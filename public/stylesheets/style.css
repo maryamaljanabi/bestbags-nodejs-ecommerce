@@ -254,6 +254,22 @@ hr.gradient-style {
   border-radius: 5px;
 }
 
+/* BANNER IMAGE */
+.hero-image {
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-text {
+  padding-top: 5em;
+  text-align: center;
+  justify-content: center;
+  height: 15em;
+  color: white;
+}
+
 /* SINGLE PRODUCT PAGE */
 
 .product-img {

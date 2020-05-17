@@ -60,9 +60,11 @@ app.use(async (req, res, next) => {
 //routes config
 const indexRouter = require("./routes/index");
 const productsRouter = require("./routes/products");
-var usersRouter = require("./routes/user");
+const usersRouter = require("./routes/user");
+const pagesRouter = require("./routes/pages");
 app.use("/products", productsRouter);
 app.use("/user", usersRouter);
+app.use("/pages", pagesRouter);
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler

@@ -47,7 +47,7 @@ router.get("/add-to-cart/:id", async (req, res) => {
 
     // add the product to the cart
     const product = await Product.findById(productId);
-    const itemIndex = cart.items.findIndex((p) => p.product == productId);
+    const itemIndex = cart.items.findIndex((p) => p.productId == productId);
     if (itemIndex > -1) {
       // if product exists in the cart, update the quantity
       cart.items[itemIndex].qty++;
@@ -57,7 +57,7 @@ router.get("/add-to-cart/:id", async (req, res) => {
     } else {
       // if product does not exists in cart, find it in the db to retrieve its price and add new item
       cart.items.push({
-        product: productId,
+        productId: productId,
         qty: 1,
         price: product.price,
         title: product.title,
@@ -132,7 +132,7 @@ router.get("/reduce/:id", async function (req, res, next) {
     }
 
     // find the item with productId
-    let itemIndex = cart.items.findIndex((p) => p.product == productId);
+    let itemIndex = cart.items.findIndex((p) => p.productId == productId);
     if (itemIndex > -1) {
       // find the product to find its price
       const product = await Product.findById(productId);
@@ -174,7 +174,7 @@ router.get("/removeAll/:id", async function (req, res, next) {
       cart = await new Cart(req.session.cart);
     }
     //fnd the item with productId
-    let itemIndex = cart.items.findIndex((p) => p.product == productId);
+    let itemIndex = cart.items.findIndex((p) => p.productId == productId);
     if (itemIndex > -1) {
       //find the product to find its price
       cart.totalQty -= cart.items[itemIndex].qty;
@@ -268,7 +268,7 @@ async function productsFromCart(cart) {
   let products = []; // array of objects
   for (const item of cart.items) {
     let foundProduct = (
-      await Product.findById(item.product).populate("category")
+      await Product.findById(item.productId).populate("category")
     ).toObject();
     foundProduct["qty"] = item.qty;
     foundProduct["totalPrice"] = item.price;

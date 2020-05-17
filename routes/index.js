@@ -61,6 +61,7 @@ router.get("/add-to-cart/:id", async (req, res) => {
         qty: 1,
         price: product.price,
         title: product.title,
+        productCode: product.productCode,
       });
       cart.totalQty++;
       cart.totalCost += product.price;
@@ -164,7 +165,7 @@ router.get("/reduce/:id", async function (req, res, next) {
 
 // GET: remove all instances of a single product from the cart
 router.get("/removeAll/:id", async function (req, res, next) {
-  var productId = req.params.id;
+  const productId = req.params.id;
   let cart;
   try {
     if (req.user) {
@@ -207,7 +208,7 @@ router.get("/checkout", middleware.isLoggedIn, async (req, res) => {
   //load the cart with the session's cart's id from the db
   cart = await Cart.findById(req.session.cart._id);
 
-  var errMsg = req.flash("error")[0];
+  const errMsg = req.flash("error")[0];
   res.render("shop/checkout", {
     total: cart.totalCost,
     csrfToken: req.csrfToken(),
@@ -221,7 +222,7 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
   if (!req.session.cart) {
     return res.redirect("/shopping-cart");
   }
-  var cart = await Cart.findById(req.session.cart._id);
+  const cart = await Cart.findById(req.session.cart._id);
   stripe.charges.create(
     {
       amount: cart.totalCost * 100,
@@ -235,7 +236,7 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
         console.log(err);
         return res.redirect("/checkout");
       }
-      var order = new Order({
+      const order = new Order({
         user: req.user,
         cart: {
           totalQty: cart.totalQty,

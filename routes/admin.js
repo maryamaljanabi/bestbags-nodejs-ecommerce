@@ -19,6 +19,9 @@ const adminBro = new AdminBro({
     logo: "/images/shop-icon.png",
     softwareBrothers: false,
   },
+  dashboard: {
+    component: AdminBro.bundle("../components/admin-dashboard-component.jsx"),
+  },
 });
 
 const router = AdminBroExpress.buildRouter(adminBro);

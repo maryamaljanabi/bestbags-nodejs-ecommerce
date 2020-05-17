@@ -21,6 +21,10 @@ connectDB();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+// admin route
+const adminRouter = require("./routes/admin");
+app.use("/admin", adminRouter);
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

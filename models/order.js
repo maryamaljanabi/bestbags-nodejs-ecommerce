@@ -21,7 +21,7 @@ var orderSchema = Schema({
     },
     items: [
       {
-        product: {
+        productId: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "Product",
         },

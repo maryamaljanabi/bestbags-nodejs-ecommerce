@@ -40,6 +40,13 @@ const AdminShowOrder = (props) => {
   const { record, property } = props;
   const polCarts = record.params;
 
+  // filter the populated array to obtain certain fields
+  const id_key = Object.entries(polCarts).filter(([key, value]) => {
+    if (key.includes("productId")) {
+      return value;
+    }
+  });
+
   const code_key = Object.entries(polCarts).filter(([key, value]) => {
     if (key.includes("productCode")) {
       return value;
@@ -64,8 +71,22 @@ const AdminShowOrder = (props) => {
     }
   });
 
+  // store the extracted data into variables to display them
+  // the id_key array is used to reference a certain product and take the admin to that product's page
+  let count = -1;
   const CodesData = code_key.map((code) => {
-    return <p key={code}>{code[1]}</p>;
+    count++;
+    return (
+      <p key={code}>
+        <a
+          href={
+            "/admin/resources/Product/records/" + id_key[count][1] + "/show"
+          }
+        >
+          {code[1]}
+        </a>
+      </p>
+    );
   });
 
   const TitlesData = titles_key.map((title) => {

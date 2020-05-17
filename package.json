@@ -31,6 +31,7 @@
     "mongoose-aggregate-paginate-v2": "^1.0.4",
     "mongoose-slug-updater": "^3.2.1",
     "morgan": "~1.9.1",
+    "nodemailer": "^6.4.6",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",

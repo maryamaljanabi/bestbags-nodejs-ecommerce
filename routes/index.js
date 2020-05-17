@@ -236,7 +236,6 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
         return res.redirect("/checkout");
       }
       var order = new Order({
-        //passport stores user in the req when user sign in
         user: req.user,
         cart: {
           totalQty: cart.totalQty,

@@ -5,22 +5,17 @@
     <div class="col-md-8 m-auto">
       <h1 class="mt-4 mb-4 text-center">Contact Us</h1>
       <!-- Flash message -->
-      <% if(successMsg != null && successMsg.length>0) {%>
-      <div id="flash-msg" class="alert alert-danger">
-        <% successMsg != null && successMsg.forEach((message) => { %>
-        <p>
-          <%=message %>
-        </p>
-        <%}) %>
-      </div>
-      <%}%>
+      <% if (successMsg != null && successMsg) { %>
+        <div id="success" class="alert alert-success">
+          <%= successMsg %>
+        </div>
+        <% } %>
     </div>
     <div class="col-md-8 m-auto">
       <!-- Introduction -->
-
     <div class="mt-4 mb-4">
       <p>You are always welcome to contact us at anytime! Feel free to email us or phone us using our contact details below<br />
-        You can also visit us or call us at anytime during our working hours from <i>Sunday to Thursday: 9AM to 5PM.</i> <br />
+        You can also visit us or call us at anytime during our working hours from <i>Sunday to Thursday: 9AM to 12PM.</i> <br />
         We reply to our emails even during the weekends. So please do not hesitate to contact us.
       </p>
     </div>
@@ -84,22 +79,32 @@
     <div class="col-md-8 m-auto">
       <div class="mt-5 mb-4">
         <h2>Contact Us Form</h2>
-        <form action="/contact-us" method="POST">
+        <!-- Error flash message -->
+        <% if(errorMsg!=null && errorMsg.length>0) {%>
+          <div id="flash-msg" class="alert alert-danger">
+            <% errorMsg.forEach((message) => { %>
+            <p>
+              <%=message %>
+            </p>
+            <%}) %>
+          </div>
+          <%}%>
+        <form action="/pages/contact-us" method="POST">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="name" class="form-control" name="name" id="name" />
+            <input type="name" class="form-control" name="name" id="name" required />
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" name="email" id="email" />
+            <input type="email" class="form-control" name="email" id="email" required />
           </div>
           <div class="form-group">
             <label for="message">Message contents</label>
-            <textarea class="form-control" name="message" id="message" rows="5" placeholder="Please write your message here..."></textarea>
+            <textarea class="form-control" name="message" id="message" rows="5" placeholder="Please write your message here..." required></textarea>
           </div>
           <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
           <button type="submit" class="btn btn-primary button-style">
-            Sign In
+            Submit
           </button>
         </form>
       </div>

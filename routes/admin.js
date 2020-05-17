@@ -135,6 +135,17 @@ const adminBro = new AdminBro({
       },
     },
   ],
+  locale: {
+    translations: {
+      labels: {
+        loginWelcome: "Admin Panel Login",
+      },
+      messages: {
+        loginWelcome:
+          "Please enter your credentials to log in and manage your website contents",
+      },
+    },
+  },
   dashboard: {
     component: AdminBro.bundle("../components/admin-dashboard-component.jsx"),
   },

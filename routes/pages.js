@@ -16,6 +16,13 @@ router.get("/about-us", (req, res) => {
   });
 });
 
+//GET: display shipping policy page
+router.get("/shipping-policy", (req, res) => {
+  res.render("pages/shipping-policy", {
+    pageName: "Shipping Policy",
+  });
+});
+
 //GET: display contact us page and form with csrf tokens
 router.get("/contact-us", (req, res) => {
   const successMsg = req.flash("success")[0];

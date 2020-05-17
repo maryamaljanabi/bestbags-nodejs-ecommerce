@@ -23,6 +23,13 @@ router.get("/shipping-policy", (req, res) => {
   });
 });
 
+//GET: display careers page
+router.get("/careers", (req, res) => {
+  res.render("pages/careers", {
+    pageName: "Careers",
+  });
+});
+
 //GET: display contact us page and form with csrf tokens
 router.get("/contact-us", (req, res) => {
   const successMsg = req.flash("success")[0];

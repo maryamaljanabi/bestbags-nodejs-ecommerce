@@ -2,7 +2,7 @@
 <html>
   <head>
     <% if (pageName) { %>
-    <title>Shopping Cart | <%= pageName %></title>
+    <title>BestBags | <%= pageName %></title>
     <%} else {%>
     <title>Shopping Cart</title>
     <% } %>
@@ -82,17 +82,16 @@
             </a>
           </li>
           <% if (login) { %>
-          <li class="nav-item dropdown">
+          <li>
             <a
-              class="nav-link dropdown-toggle"
+              class="dropdown-toggle"
               href="#"
-              id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <i class="fas fa-user"></i> Welcome <%=currentUser.email%>
+              <i class="fas fa-user"></i> Welcome <%=currentUser.username%>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/user/profile">User Account</a>

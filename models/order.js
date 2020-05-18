@@ -6,8 +6,6 @@ var orderSchema = Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  // cart as object instead of reference to allow displaying it in AdminBro
-  // if we create our own custom Admin interface, we can reference cart instead
   cart: {
     totalQty: {
       type: Number,
@@ -42,7 +40,6 @@ var orderSchema = Schema({
       },
     ],
   },
-  //checkout form info
   address: {
     type: String,
     required: true,

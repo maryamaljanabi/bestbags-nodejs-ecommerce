@@ -1,11 +1,11 @@
 {
   "name": "ecommerce-nodejs-website",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Maryam Aljanabi",
   "license": "MIT",
   "dependencies": {
     "admin-bro": "^2.3.1",

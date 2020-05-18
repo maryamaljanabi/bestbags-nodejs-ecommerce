@@ -307,6 +307,11 @@ hr.gradient-style {
   color: var(--dark-blue);
 }
 
+/* BREADCRUMBS STYLE */
+.breadcrumb-item a:hover {
+  color: var(--dark-blue) !important;
+}
+
 /* SHOPPING CART STYLES */
 .container.cart {
   margin: 1em auto;

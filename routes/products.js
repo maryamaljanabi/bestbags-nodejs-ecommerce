@@ -25,6 +25,7 @@ router.get("/", async (req, res) => {
       successMsg,
       errorMsg,
       current: page,
+      breadcrumbs: null,
       home: "/products/?",
       pages: Math.ceil(count / perPage),
     });
@@ -60,6 +61,7 @@ router.get("/search", async (req, res) => {
       successMsg,
       errorMsg,
       current: page,
+      breadcrumbs: null,
       home: "/products/search?search=" + req.query.search + "&",
       pages: Math.ceil(count / perPage),
     });
@@ -92,6 +94,7 @@ router.get("/:slug", async (req, res) => {
       successMsg,
       errorMsg,
       current: page,
+      breadcrumbs: req.breadcrumbs,
       home: "/products/" + req.params.slug.toString() + "/?",
       pages: Math.ceil(count / perPage),
     });

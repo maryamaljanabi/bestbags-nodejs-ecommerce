@@ -244,7 +244,6 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
           items: cart.items,
         },
         address: req.body.address,
-        name: req.body.name,
         paymentId: charge.id,
       });
       order.save(async (err, newOrder) => {

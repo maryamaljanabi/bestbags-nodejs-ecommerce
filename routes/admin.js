@@ -33,7 +33,6 @@ const adminBro = new AdminBro({
             isVisible: { list: false, filter: true, show: true, edit: true },
           },
           _id: {
-            type: "richtext",
             isVisible: { list: false, filter: true, show: true, edit: false },
           },
           price: {
@@ -59,7 +58,6 @@ const adminBro = new AdminBro({
         },
         properties: {
           _id: {
-            type: "richtext",
             isVisible: { list: false, filter: true, show: true, edit: false },
           },
         },
@@ -74,7 +72,6 @@ const adminBro = new AdminBro({
         },
         properties: {
           _id: {
-            type: "richtext",
             isVisible: { list: false, filter: true, show: true, edit: false },
           },
           paymentId: {
@@ -122,7 +119,6 @@ const adminBro = new AdminBro({
         },
         properties: {
           _id: {
-            type: "richtext",
             isVisible: { list: false, filter: true, show: true, edit: false },
           },
           slug: {

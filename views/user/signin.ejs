@@ -5,13 +5,9 @@
     <div class="col-md-8 m-auto">
       <h1 class="mt-4 mb-4">Sign In Page</h1>
       <!-- Flash message -->
-      <% if(messages.length>0) {%>
+      <% if(errorMsg !=null && errorMsg.length>0) {%>
       <div id="flash-msg" class="alert alert-danger">
-        <% messages.forEach((message) => { %>
-        <p>
-          <%=message %>
-        </p>
-        <%}) %>
+        <%=errorMsg %>
       </div>
       <%}%>
       <form action="/user/signin" method="POST">

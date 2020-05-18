@@ -4,16 +4,22 @@
   <div class="row">
     <div class="col-md-8 m-auto">
       <h1 class="mt-4 mb-4">Sign Up Page</h1>
-      <% if(messages.length>0) {%>
+      <% if(errorMsg != null && errorMsg.length>0) {%>
       <div id="flash-msg" class="alert alert-danger">
-        <% messages.forEach((message) => { %>
-        <p>
-          <%=message %>
-        </p>
-        <%}) %>
+        <%=errorMsg %>
       </div>
       <%}%>
       <form action="/user/signup" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="name"
+            class="form-control"
+            name="name"
+            id="name"
+            required
+          />
+        </div>
         <div class="form-group">
           <label for="email">Email address</label>
           <input type="email" class="form-control" name="email" id="email" />
@@ -25,6 +31,15 @@
             class="form-control"
             name="password"
             id="password"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password2">Verify Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password2"
+            id="password2"
           />
         </div>
         <input type="hidden" name="_csrf" value="<%= csrfToken %>" />

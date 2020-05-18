@@ -18,10 +18,10 @@ router.use(csrfProtection);
 
 // GET: display the signup form with csrf token
 router.get("/signup", middleware.isNotLoggedIn, (req, res) => {
-  var messages = req.flash("error");
+  var errorMsg = req.flash("error")[0];
   res.render("user/signup", {
     csrfToken: req.csrfToken(),
-    messages,
+    errorMsg,
     pageName: "Sign Up",
   });
 });
@@ -64,10 +64,10 @@ router.post(
 
 // GET: display the signin form with csrf token
 router.get("/signin", middleware.isNotLoggedIn, async (req, res) => {
-  var messages = req.flash("error");
+  var errorMsg = req.flash("error")[0];
   res.render("user/signin", {
     csrfToken: req.csrfToken(),
-    messages,
+    errorMsg,
     pageName: "Sign In",
   });
 });
@@ -119,6 +119,7 @@ router.post(
 router.get("/profile", middleware.isLoggedIn, async (req, res) => {
   const successMsg = req.flash("success")[0];
   const errorMsg = req.flash("error")[0];
+  console.log(req.user);
   try {
     // find all orders of this user
     allOrders = await Order.find({ user: req.user });

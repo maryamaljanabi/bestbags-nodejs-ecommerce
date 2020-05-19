@@ -35,6 +35,9 @@ const adminBro = new AdminBro({
           _id: {
             isVisible: { list: false, filter: true, show: true, edit: false },
           },
+          title: {
+            isTitle: true,
+          },
           price: {
             type: "number",
           },
@@ -60,6 +63,9 @@ const adminBro = new AdminBro({
           _id: {
             isVisible: { list: false, filter: true, show: true, edit: false },
           },
+          username: {
+            isTitle: true,
+          },
         },
       },
     },
@@ -71,11 +77,20 @@ const adminBro = new AdminBro({
           icon: "User",
         },
         properties: {
+          user: {
+            isTitle: true,
+          },
           _id: {
             isVisible: { list: false, filter: true, show: true, edit: false },
           },
           paymentId: {
             isVisible: { list: false, filter: true, show: true, edit: false },
+          },
+          address: {
+            isVisible: { list: false, filter: true, show: true, edit: false },
+          },
+          createdAt: {
+            isVisible: { list: true, filter: true, show: true, edit: false },
           },
           cart: {
             isVisible: { list: false, filter: false, show: true, edit: false },
@@ -124,8 +139,8 @@ const adminBro = new AdminBro({
           slug: {
             isVisible: { list: false, filter: false, show: false, edit: false },
           },
-          id: {
-            isVisible: { list: false, filter: false, show: false, edit: false },
+          title: {
+            isTitle: true,
           },
         },
       },

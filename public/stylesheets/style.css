@@ -368,11 +368,27 @@ ul {
   padding: 1em 1em 0.2em 1em;
   border-bottom: 5px var(--dark-blue) solid;
 }
-.footer {
+.bottom-footer {
   font-size: 14px;
   padding: 1em 1.5em;
   color: var(--ivory);
   background-color: #1a1a1a;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }
 
 /* STRIPE ELEMENTS FOR CARD PAYMENT */

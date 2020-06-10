@@ -1,11 +1,11 @@
 <%- include ../partials/header %> <%- include ../partials/categories-navbar %>
-<div class="container mt-4 mb-4">
+<div class="container cart">
   <% if (cart != null && !cart.paid ) { %>
   <div class="row">
-    <div class="col-md-11 col-sm-6 m-auto">
-      <table class="table">
+    <div class="col-md-11 col-sm-12 m-auto">
+      <table class="table text-center">
         <thead>
-          <tr>
+          <tr >
             <th>Product</th>
             <th>&nbsp;</th>
             <th>&nbsp;</th>
@@ -31,8 +31,8 @@
                 <a class="title-link"
                 href="/products/<%=product.category.slug%>/<%=product._id%>"
               >
-                <h5><%= product.title %></h5> 
-                <p>Product No: <%= product.productCode %></p>
+                <h6 class="text-left"><%= product.title %></h6> 
+                <p class="text-left">Product No: <%= product.productCode %></p>
               </div>
               
               </a>
@@ -69,12 +69,12 @@
   </div>
 <hr>
   <div class="row mt-4">
-    <div class="col-md-11 col-sm-6 m-auto">
+    <div class="col-md-11 col-sm-12 m-auto">
       <strong>Total: <%= cart.totalCost %> </strong>
     </div>
   </div>
   <div class="row mt-2">
-    <div class="col-md-11 col-sm-6 m-auto">
+    <div class="col-md-11 col-sm-12 m-auto">
       <a href="/checkout" class="btn btn-dark button-style">Checkout</a>
     </div>
   </div>

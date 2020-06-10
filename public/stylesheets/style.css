@@ -308,6 +308,10 @@ hr.gradient-style {
 }
 
 /* SHOPPING CART STYLES */
+.container.cart {
+  margin: 1em auto;
+}
+
 .img-small {
   height: 5%;
   margin: 2px;
@@ -440,6 +444,13 @@ footer {
   .logo-container {
     transform: translateX(0em);
     margin: 0.5em auto;
+  }
+  .container.cart {
+    margin: 1em 0.5em;
+    padding: 0px;
+  }
+  .white-links {
+    margin-left: 0px;
   }
 }
 

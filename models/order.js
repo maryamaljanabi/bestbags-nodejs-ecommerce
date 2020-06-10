@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-var orderSchema = Schema({
+const orderSchema = Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
@@ -41,10 +41,6 @@ var orderSchema = Schema({
     ],
   },
   address: {
-    type: String,
-    required: true,
-  },
-  name: {
     type: String,
     required: true,
   },

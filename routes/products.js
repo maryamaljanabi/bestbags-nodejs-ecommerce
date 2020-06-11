@@ -54,7 +54,6 @@ router.get("/search", async (req, res) => {
     const count = await Product.count({
       title: { $regex: req.query.search, $options: "i" },
     });
-    console.log(count);
     res.render("shop/index", {
       pageName: "Search Results",
       products,

@@ -100,7 +100,6 @@ router.post(
       }
       // redirect to old URL before signing in
       if (req.session.oldUrl) {
-        console.log(req.session.oldUrl);
         var oldUrl = req.session.oldUrl;
         req.session.oldUrl = null;
         res.redirect(oldUrl);
@@ -119,7 +118,6 @@ router.post(
 router.get("/profile", middleware.isLoggedIn, async (req, res) => {
   const successMsg = req.flash("success")[0];
   const errorMsg = req.flash("error")[0];
-  console.log(req.user);
   try {
     // find all orders of this user
     allOrders = await Order.find({ user: req.user });

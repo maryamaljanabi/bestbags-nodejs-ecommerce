@@ -251,7 +251,6 @@ router.post("/checkout", middleware.isLoggedIn, async (req, res) => {
           console.log(err);
           return res.redirect("/checkout");
         }
-        cart.paid = true;
         await cart.save();
         await Cart.findByIdAndDelete(cart._id);
         req.flash("success", "Successfully purchased");

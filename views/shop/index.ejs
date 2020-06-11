@@ -2,6 +2,7 @@
 
 <div class="container-fluid">
   <!-- Flash messages -->
+  <% if(successMsg || errorMsg) {%>
   <div class="row mt-3 mb-3">
     <div class="col-md-12 m-auto">
       <% if (successMsg) { %>
@@ -22,8 +23,9 @@
       <% } %>
     </div>
   </div>
+  <% } %>
   <!-- Breadcrumbs -->
-  <div class="row">
+  <div class="row mt-2">
     <div class="col-md-12 m-auto">
       <%if (breadcrumbs) { %>
       <nav aria-label="breadcrumb">

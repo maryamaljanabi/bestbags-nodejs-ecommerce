@@ -52,7 +52,8 @@ a:hover,
 .right-nav {
   font-size: 16px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: center;
   margin-left: auto !important;
@@ -149,13 +150,6 @@ a:hover,
 }
 
 /* HOME PAGE */
-.carousel img {
-  margin: auto;
-  width: 100%;
-  height: 300px;
-  object-position: 50% 70%;
-  object-fit: cover;
-}
 
 .circle-img {
   object-fit: cover;
@@ -195,13 +189,10 @@ hr.gradient-style {
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0)
   );
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 /* PRODUCTS INDEX PAGE */
-.products-container {
-  margin: 1em 3em;
-}
 
 .title-link {
   color: var(--black);
@@ -246,6 +237,11 @@ hr.gradient-style {
   text-align: center;
 }
 
+.product-index-box .btn {
+  width: 90%;
+  margin: 0.3em auto;
+}
+
 .product-index-box img {
   width: 90%;
   height: 20em;
@@ -255,19 +251,21 @@ hr.gradient-style {
 }
 
 /* BANNER IMAGE */
-.hero-image {
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.hero-container {
+  display: grid;
+  overflow: hidden;
+}
+
+.hero-image,
+.hero-text {
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .hero-text {
-  padding-top: 5em;
-  text-align: center;
-  justify-content: center;
-  height: 15em;
   color: white;
+  padding-top: 10%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 
 /* SINGLE PRODUCT PAGE */
@@ -435,6 +433,15 @@ footer {
   .card img {
     height: 17em;
   }
+  .controls-top h3 {
+    font-size: 20px;
+  }
+  .controls-top .fa {
+    font-size: 12px;
+  }
+  .hero-text h1 {
+    font-size: 25px;
+  }
 }
 
 /* SM SCREENS */
@@ -450,12 +457,11 @@ footer {
     transform: translateX(0em);
     margin: 0.5em auto;
   }
-  .container.cart {
-    margin: 1em 0.5em;
-    padding: 0px;
-  }
   .white-links {
     margin-left: 0px;
+  }
+  .hero-text {
+    padding-top: 8%;
   }
 }
 

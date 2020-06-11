@@ -1,6 +1,6 @@
 <%- include ../partials/header %> <%- include ../partials/categories-navbar %>
 
-<div class="products-container">
+<div class="container-fluid">
   <!-- Flash messages -->
   <div class="row mt-3 mb-3">
     <div class="col-md-12 m-auto">
@@ -39,32 +39,30 @@
     </div>
   </div>
   <!-- Page banner image -->
+
   <% if(pageName == 'All Products') { %>
-  <div
-    class="hero-image text-center"
-    style="
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/images/banner-all-products.jpg);
-    "
-  >
+  <div class="text-center hero-container">
+    <img
+      class="d-block w-100 hero-image"
+      src="/images/banner-all-products.jpg"
+    />
     <div class="hero-text">
       <h1><%=pageName%></h1>
     </div>
   </div>
   <%} else {%> <%categories.forEach( category => {%> <%if(pageName ==
   category.title){%>
-  <div
-    class="hero-image text-center"
-    style="
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/images/banner-<%=category.slug%>.jpg);
-    "
-  >
+  <div class="text-center hero-container">
+    <img
+      class="d-block w-100 hero-image"
+      src="/images/banner-<%=category.slug%>.jpg"
+    />
     <div class="hero-text">
       <h1><%=pageName%></h1>
     </div>
   </div>
   <%}%> <%})%> <%}%>
+
   <hr class="gradient-style" />
   <!-- Contents -->
   <div class="row pl-4 pr-4">

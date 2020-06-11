@@ -2,7 +2,7 @@
 <div class="container cart">
   <% if (cart != null && !cart.paid ) { %>
   <div class="row">
-    <div class="col-md-11 col-sm-12 m-auto">
+    <div class="col-md-11 col-sm-12 m-auto table-responsive">
       <table class="table text-center">
         <thead>
           <tr >
@@ -68,12 +68,12 @@
     </div>
   </div>
 <hr>
-  <div class="row mt-4">
+  <div class="row mt-4 mr-auto">
     <div class="col-md-11 col-sm-12 m-auto">
       <strong>Total: <%= cart.totalCost %> </strong>
     </div>
   </div>
-  <div class="row mt-2">
+  <div class="row mt-2 mr-auto">
     <div class="col-md-11 col-sm-12 m-auto">
       <a href="/checkout" class="btn btn-dark button-style">Checkout</a>
     </div>

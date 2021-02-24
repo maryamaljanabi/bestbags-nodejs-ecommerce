@@ -2,7 +2,7 @@ const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, "../.env") });
 const Category = require("../models/category");
 const mongoose = require("mongoose");
-const connectDB = require("./config/db");
+const connectDB = require("./../config/db");
 connectDB();
 
 async function seedDB() {

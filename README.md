@@ -25,7 +25,7 @@ The application is deployed to Heroku and can be accessed through the following 
 
 The website resembles a real store and you can add products to your cart and pay for them. If you want to try the checkout process, you can use the dummy card number provided by stripe for testing which is 4242 4242 4242 4242 with any expiration date, CVC, and zip codes. Please <u><b>DO NOT</b></u> provide real card number and data.
 
-In order to access the admin panel on "/admin" you need to provide the admin email "admin<span></span>@admin.com" and the admin password "admin123".
+In order to access the admin panel on "/admin" you need to provide the admin email and password.
 
 ## Technology
 

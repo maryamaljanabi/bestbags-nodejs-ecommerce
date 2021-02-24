@@ -219,17 +219,17 @@ async function seedDB() {
     await mongoose.disconnect();
   }
 
-  // await seedProducts(backpacks_titles, backpacks_imgs, "Backpacks");
-  // await seedProducts(briefcases_titles, briefcases_imgs, "Briefcases");
-  // await seedProducts(travel_titles, travel_imgs, "Travel");
+  await seedProducts(backpacks_titles, backpacks_imgs, "Backpacks");
+  await seedProducts(briefcases_titles, briefcases_imgs, "Briefcases");
+  await seedProducts(travel_titles, travel_imgs, "Travel");
   await seedProducts(miniBags_titles, miniBags_imgs, "Mini Bags");
-  // await seedProducts(
-  //   largeHandbags_titles,
-  //   largeHandbags_imgs,
-  //   "Large Handbags"
-  // );
-  // await seedProducts(purses_titles, purses_imgs, "Purses");
-  // await seedProducts(totes_titles, totes_imgs, "Totes");
+  await seedProducts(
+    largeHandbags_titles,
+    largeHandbags_imgs,
+    "Large Handbags"
+  );
+  await seedProducts(purses_titles, purses_imgs, "Purses");
+  await seedProducts(totes_titles, totes_imgs, "Totes");
 
   await closeDB();
 }

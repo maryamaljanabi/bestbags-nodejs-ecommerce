@@ -45,7 +45,7 @@ To run this application, you have to set your own environmental variables. For s
 
 - ADMIN_COOKIE_NAME, ADMIN_COOKIE_PASSWORD: the cookie name and password used in the AdminBro authentication method. You can put any strings here.
 
-After you've set these environmental variables in the .env file at the root of the project, you need to navigate to the "seedDB" folder and run "node category-seed.js" and "node product-seed.js" to fill your empty MongoDB Atlas database.
+After you've set these environmental variables in the .env file at the root of the project, you need to navigate to the "seedDB" folder and run "node category-seed.js" and "node products-seed.js" to fill your empty MongoDB Atlas database.
 
 Now you can run "npm start" in the terminal and the application should work.
 
